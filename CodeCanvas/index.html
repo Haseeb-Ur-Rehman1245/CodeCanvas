@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeCanvas</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
 
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-wrap">
+          <div class="logo-icon">&lt;/&gt;</div>
+          <div>
+            <h1>CodeCanvas</h1>
+            <p>Live Code Playground</p>
+          </div>
+        </div>
+        <button id="themeToggle" class="icon-btn theme-btn" aria-label="Toggle theme">
+          <span class="theme-sun">☀</span>
+          <span class="theme-moon">☾</span>
+        </button>
+      </div>
+
+      <div class="explorer">
+        <div class="explorer-title">EXPLORER</div>
+        <button class="file-item active" data-file="html">
+          <span class="file-dot html-dot"></span>
+          <span>index.html</span>
+        </button>
+        <button class="file-item" data-file="css">
+          <span class="file-dot css-dot"></span>
+          <span>style.css</span>
+        </button>
+        <button class="file-item" data-file="js">
+          <span class="file-dot js-dot"></span>
+          <span>script.js</span>
+        </button>
+      </div>
+
+      <div class="sidebar-actions">
+        <button id="copyFileBtn" class="sidebar-btn">Copy Current</button>
+        <button id="formatBtn" class="sidebar-btn">Format</button>
+        <button id="downloadZipBtn" class="sidebar-btn">Export ZIP</button>
+        <button id="clearBtn" class="sidebar-btn danger">Reset</button>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="tabs" id="tabs">
+          <button class="editor-tab active" data-file="html">
+            <span class="file-dot html-dot"></span>
+            <span>index.html</span>
+          </button>
+          <button class="editor-tab" data-file="css">
+            <span class="file-dot css-dot"></span>
+            <span>style.css</span>
+          </button>
+          <button class="editor-tab" data-file="js">
+            <span class="file-dot js-dot"></span>
+            <span>script.js</span>
+          </button>
+        </div>
+
+        <div class="topbar-actions">
+          <button id="runToggleBtn" class="action-btn">Pause</button>
+          <button id="copyAllBtn" class="action-btn">Copy All</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="editor-pane" id="editorPane">
+          <div class="editor-toolbar">
+            <div class="editor-toolbar-left">
+              <span class="toolbar-title" id="currentFileLabel">index.html</span>
+              <span class="status-pill" id="saveStatus">Saved</span>
+            </div>
+            <div class="editor-toolbar-right">
+              <span class="status-pill live-pill" id="previewStatus">Live</span>
+            </div>
+          </div>
+
+          <div class="editor-stage">
+            <div class="line-numbers" id="lineNumbers"></div>
+            <div class="code-layer">
+              <pre class="highlight-pre" id="highlightPre" aria-hidden="true"><code id="highlightCode" class="language-markup"></code></pre>
+              <textarea id="codeInput" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="splitter" id="splitter"></div>
+
+        <div class="preview-stack" id="previewStack">
+          <div class="preview-card">
+            <div class="panel-title">
+              <span>Preview</span>
+              <span class="panel-badge" id="modeBadge">Running</span>
+            </div>
+            <iframe id="previewFrame" title="Preview"></iframe>
+          </div>
+
+          <div class="console-card">
+            <div class="panel-title">
+              <span>Console</span>
+              <div class="console-actions">
+                <button id="clearConsoleBtn" class="mini-action">Clear</button>
+              </div>
+            </div>
+            <div class="console-output" id="consoleOutput"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
